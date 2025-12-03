@@ -1,110 +1,84 @@
-## Bank Customer Default Prediction
-
-A complete end-to-end machine-learning project covering data cleaning, exploratory analysis, model development, evaluation, explainability, and business insights for financial decision-making.
+## Credit Card Default Prediction – Machine Learning Analysis
 
 ### 📌 Project Overview
 
-This project predicts whether a customer is likely to default on a loan using structured bank customer data.
-It includes:
+This project analyzes the UCI Credit Card Default Dataset and builds machine-learning models to predict whether a customer will default on their next monthly payment.
+The goal is to help financial institutions identify high-risk customers, reduce losses, and improve lending decisions.
 
-- Data cleaning & preprocessing
-- Exploratory Data Analysis (EDA)
-- Feature engineering
-- Baseline & advanced machine-learning models
-- Evaluation & interpretation
-- SHAP explainability
-- Practical lender-facing recommendations
+### ⭐ Business Summary 
 
-The goal is to help lenders reduce credit losses while approving more quality customers.
+**Why This Analysis Matters**
 
-### 🧹 Data Cleaning Summary
+Banks and lenders lose money when customers fail to repay loans or credit card balances.
+This project helps answer:
 
-**Key cleaning steps performed:**
+- Who is more likely to default next month?
+- What customer behaviors signal higher risk?
+- How can lenders reduce losses using data?
 
-- Removed/handled missing values
-- Transformed categorical features
-- Standardized/normalized numerical variables
-- Removed outliers where necessary
-- Fixed inconsistent entries
-- Exported cleaned dataset as:
-"data/processed/bank_cleaned.csv"
+### Key Findings
 
-**📊 Exploratory Data Analysis (EDA)**
+- A clear difference exists between customers who default and those who don’t.
+- Payment history variables (late payments) were the strongest predictors of default.
+- Random Forest was the best-performing model, giving the most accurate predictions.
+- SHAP analysis showed that the model’s decisions are explainable and transparent.
 
-**This analysis covered:**
+### What Lenders Can Do
 
-- Customer demographic patterns
-- Income, age, and credit behavior
-- Default rate distribution
-- Correlations between features & target
-- Feature interactions visualized through histograms, KDE plots, boxplots, heatmaps, etc.
+- Flag high-risk customers early
+- Offer targeted repayment plans
+- Adjust credit limits
+- Reduce financial losses through proactive intervention
 
 
-### 🧪 Models & Baseline Summary
+### 🔍 Technical Summary (For Data Scientists)
 
-I evaluated multiple models. Baseline results included:
+Dataset
 
-**Baseline Model Evaluation Notes** 
-- The baseline model provides a “starting point” performance.
-- It helps measure whether more advanced models are actually improving predictions.
-- Metrics such as accuracy, precision, recall, F1-score, and ROC-AUC were recorded.
-- These scores were saved in:
-"models/baseline_results.json"
+- 30,000 customers
+- 24 features
+- Binary target: default payment next month
 
-### Final Model Summary 
-- The final model significantly improved ability to detect likely defaulters.
-- Higher recall means fewer risky customers slip through.
-- Higher precision means fewer good customers are wrongly flagged.
-- ROC-AUC shows the model is far better than random guessing.
-- Final results saved in:
-"models/model_summary.json"
+### Steps Performed
+1. Data Cleaning & Preparation
+2. Exploratory Data Analysis (EDA)
+3. Model Training:
+   - Logistic Regression
+   - Random Forest
+4. Model Evaluation:
+   - Confusion Matrix
+   - ROC-AUC
+   - Precision–Recall Curve
+   - KS Curve
+   - Lift & Gain Charts
+5. Explainability with SHAP
+6. Business Insights & Recommendations
 
+**Best Model**
 
-### 🧠 SHAP Explainability
-
-I generated:
-
-- SHAP summary plot
-- Feature importance ranking
-- Force plots for individual predictions
-
-Interpretation revealed:
-
-- Top drivers of default
-- Why certain customers are predicted risky or safe
-
-### 🏦 Business-Level Insights
-
-My findings help lenders:
-
-- Improve loan approval decisions
-- Reduce default losses
-- Identify key risk drivers (income, credit history, age, repayment pattern, etc.)
-- Build segmented lending strategies
-- Estimate revenue & loss impact if recommendations are applied
+- Random Forest
+- Highest AUC
+- Strong recall
+- Best separation on KS statistic
+- Most robust performance overall
 
 
-### 🚀 How to Use This Project
+### 🚀 How to Run the Project
 
-1. Install requirements
+1. Install dependencies:
 
 pip install -r requirements.txt
 
-2. Run the notebook
+2. Open the notebooks:
 
-Open the full workflow:
+jupyter notebook notebooks/
 
-notebooks/bank_default_analysis.ipynb
+3. Run steps in order from 01 → 05.
 
-3. Train the model (optional script version)
 
-python src/train_model.py
+### 🏁 Conclusion
 
-4. Load the trained model
-
-import joblib
-model = joblib.load("models/final_model.pkl")
-
+This project provides a complete, transparent, and business-ready approach to understanding and predicting credit default risk. The models and insights can directly support risk management teams, financial analysts, and lending institutions.
 
 ### 📈 Future Enhancements
 
@@ -112,7 +86,6 @@ model = joblib.load("models/final_model.pkl")
 - Add API endpoint for real-time scoring
 - Implement automated monitoring for model drift
 - Build credit risk simulation tools
-
 
 **👤 Author**
 
